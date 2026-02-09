@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CS355 - Page 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container headers-inner">
+      <div>
+        <h1 class="site-title">CS355 Website</h1>
+        <p class="site-subtitle">Clean • Functional • Cool</p>
+      </div>
+      <nav class="nav">
+        <a class="nav-link active" href="page1.html">Page 1</a>
+        <a class="nav-link" href="page2.html">Page 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Welcome</h2>
+        <p>
+          This page demonstrates a polished layout with images, a submission form on Page 2,
+          and a light/dark theme using <span class="mono">localStorage</span>.
+        </p>
+        <ul class="bullets">
+          <li>Submit sends inputs to <span class="mono">page2.html</span></li>
+          <li>Page 2 parses with <span class="mono">new URLSearchParams(location.search)</span></li>
+          <li>Key/value results rendered one-per-row using CSS grid</li>
+        </ul>
+      </div>
+
+      <div class="hero-media">
+        <img class="hero-img" src="images/hero.jpg" alt="Hero image" />
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <img class="card-img" src="images/coding.jpg" alt="Coding image" />
+        <div class="card-body">
+          <h3>Modern UI</h3>
+          <p>Responsive spacing, card design, and readable typography.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <h3>Form → Results</h3>
+          <p>
+            Fill the form below and submit!<br> Page 2 will display your values in a clean key/value layout.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Information Form</h2>
+      <p class="panel-subtitle">Submit collects inputs and sends them to page2.html</p>
+
+      <form class="form" method="GET" action="page2.html">
+        <div class="form-grid">
+          <label class="field">
+            <span>Full Name</span>
+            <input name="fullName" type="text" placeholder="e.g., Elon Musk" required />
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" placeholder="e.g., name@example.com" required />
+          </label>
+
+          <label class="field">
+            <span>Course</span>
+            <select name="course" required>
+              <option value="" selected disabled>Select one</option>
+              <option>CS355</option>
+              <option>CS245</option>
+              <option>CS336</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Favorite Language</span>
+            <input name="favLang" type="text" placeholder="e.g., Python" />
+          </label>
+
+          <label class="field">
+            <span>Graduation Year</span>
+            <input name="gradYear" type="number" min="2020" max="2100" placeholder="e.g., 2027" />
+          </label>
+
+          <label class="field">
+            <span>Newsletter</span>
+            <div class="checkline">
+              <input id="newsletter" name="newsletter" type="checkbox" value="yes" />
+              <label for="newsletter" class="checklabel">Yes, sign me up</label>
+            </div>
+          </label>
+
+          <label class="field field-wide">
+            <span>Short Bio</span>
+            <textarea name="bio" rows="4" placeholder="Write 1–3 sentences..."></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn ghost" type="reset">Reset</button>
+          <button class="btn primary" type="submit">Submit → Page 2</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Dark mode toggle (bottom-right) -->
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    <span class="toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

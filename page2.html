@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CS355 - Page 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1 class="site-title">Submission Results</h1>
+        <p class="site-subtitle">Parsed from the query string using URLSearchParams</p>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="page1.html">Page 1</a>
+        <a class="nav-link active" href="page2.html">Page 2</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2 class="panel-title">Collected Values</h2>
+      <p class="panel-subtitle">
+        This page uses <span class="mono">new URLSearchParams(location.search)</span> to display submitted inputs.
+      </p>
+
+      <div id="results" class="kv-grid" aria-live="polite"></div>
+
+      <div class="form-actions">
+        <a class="btn ghost" href="page1.html">← Back to Page 1</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dark mode toggle (bottom-right) -->
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    <span class="toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+
+  <script src="script.js"></script>
+
+  <script>
+    // REQUIRED: use new URLSearchParams(location.search)
+    const params = new URLSearchParams(location.search);
+
+    const resultsEl = document.getElementById("results");
+
+    // Convert query params into display rows (one per row)
+    // If checkbox unchecked, it won't appear in querystring; that's fine.
+    if ([...params.keys()].length === 0) {
+      resultsEl.innerHTML = `
+        <div class="empty-state">
+          No submitted values found. Go back to Page 1 and submit the form.
+        </div>
+      `;
+    } else {
+      for (const [key, value] of params.entries()) {
+        const row = document.createElement("div");
+        row.className = "kv-row";
+
+        const k = document.createElement("div");
+        k.className = "kv-key";
+        k.textContent = key;
+
+        const v = document.createElement("div");
+        v.className = "kv-value";
+        v.textContent = value;
+
+        row.appendChild(k);
+        row.appendChild(v);
+        resultsEl.appendChild(row);
+      }
+    }
+  </script>
+</body>
+</html>
