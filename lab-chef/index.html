@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Bot AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chef Bot</h1>
+        <input type="text" id="api-key-input" placeholder="API key from aistudio.google.com">
+        <p>Enter the ingredients you have, and I'll find a recipe!</p>
+        <input type="text" id="ingredients-input" placeholder="e.g. eggs, spinach, feta">
+        <button onclick="getRecipe()">Generate Recipe</button>
+        <div id="recipe-display">Cooking up something special...</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Fira+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --bg-1: #f8e6cf;
+    --bg-2: #f3c7a8;
+    --bg-3: #e9a88f;
+    --ink: #2a1f1b;
+    --muted: #6b5347;
+    --accent: #c2564a;
+    --accent-dark: #a6443b;
+    --card: #fff7ed;
+    --ring: rgba(194, 86, 74, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 56px);
+    font-family: 'Fira Sans', 'Segoe UI', Tahoma, sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(900px 600px at 10% 10%, rgba(255, 255, 255, 0.6), transparent 60%),
+        radial-gradient(700px 500px at 90% 20%, rgba(255, 255, 255, 0.35), transparent 65%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.35;
+}
+
+.container {
+    width: min(720px, 100%);
+    background: rgba(255, 247, 237, 0.9);
+    border: 1px solid rgba(146, 96, 86, 0.25);
+    border-radius: 28px;
+    padding: clamp(24px, 4vw, 44px);
+    box-shadow: 0 20px 60px rgba(86, 42, 31, 0.25);
+    backdrop-filter: blur(8px);
+    animation: float-in 700ms ease-out;
+}
+
+h1 {
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: 0.02em;
+    margin: 0 0 16px 0;
+}
+
+p {
+    margin: 10px 0 18px 0;
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+input[type='text'] {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(146, 96, 86, 0.35);
+    background: #fffaf4;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: var(--ink);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    margin-bottom: 14px;
+}
+
+input[type='text']::placeholder {
+    color: rgba(107, 83, 71, 0.65);
+}
+
+input[type='text']:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--ring);
+    transform: translateY(-1px);
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fffaf4;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    box-shadow: 0 12px 22px rgba(194, 86, 74, 0.35);
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+button:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 14px 26px rgba(194, 86, 74, 0.4);
+    filter: brightness(1.03);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 0 8px 18px rgba(194, 86, 74, 0.32);
+}
+
+#recipe-display {
+    margin-top: 22px;
+    padding: 18px 20px;
+    background: #fffefb;
+    border-radius: 18px;
+    border: 1px dashed rgba(146, 96, 86, 0.35);
+    min-height: 140px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    color: var(--ink);
+    animation: fade-in 350ms ease-out;
+}
+
+#recipe-display h2 {
+    font-family: 'Fraunces', 'Georgia', serif;
+    margin-top: 0;
+}
+
+#recipe-display ul {
+    padding-left: 20px;
+}
+
+@keyframes float-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    button {
+        width: 100%;
+    }
+}
