@@ -1,10 +1,6 @@
 'use strict';
 
 (function () {
-  const STORAGE_KEY = "cs355_theme";
-  // ...rest of your code
-})();
-(function () {
   const STORAGE_KEY = "cs355_theme"; // "dark" or "light"
 
   function applyTheme(theme) {
