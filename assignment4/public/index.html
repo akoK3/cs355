@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Gallery</title>
+    <link rel="stylesheet" href="dog.css">
+</head>
+<body>
+    <main class="app">
+        <header class="app__header">
+            <p class="eyebrow">Dog Image Explorer</p>
+            <h1>Dog</h1>
+            <p class="sub">Type a breed and get a new photo every 5 seconds.</p>
+        </header>
+
+        <div class="controls">
+            <div class="input-group">
+                <label for="dog-input">Breed</label>
+                <input list="breeds" type="text" id="dog-input" placeholder="Enter a dog breed" autocomplete="off">
+                <datalist id="breeds">
+                    <option value="labrador">
+                    <option value="germanshepherd">
+                    <option value="beagle">
+                </datalist>
+            </div>
+            <button id="show-btn">Show Images</button>
+        </div>
+
+        <div id="images" class="image-area"></div>
+    </main>
+    <script src="doggie.js"></script>
+</body>
+</html>
